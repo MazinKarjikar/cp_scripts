@@ -1,3 +1,4 @@
+using namespace std;
 #include <vector>
 #include <cmath>
 #include <functional>
@@ -5,17 +6,17 @@
 
 template <typename T>
 struct SparseTable {
-    std::vector<std::vector<T>> table;
+    vector<vector<T>> table;
     int n;
     T default_value;
-    std::function<T(T,T)> combine;
+    function<T(T,T)> combine;
 
-    SparseTable(const std::vector<T>& input, std::function<T(T,T)> f, T d) {
+    SparseTable(const vector<T>& input, function<T(T,T)> f, T d) {
         n = input.size();
         combine = f;
         default_value = d;
         int max_log = log2(n) + 1;
-        table.assign(max_log, std::vector<T>(n));
+        table.assign(max_log, vector<T>(n));
 
         for(int i = 0; i < n; i++) {
             table[0][i] = static_cast<T>(input[i]);
@@ -43,7 +44,7 @@ struct SparseTable {
 
 // usage
 int main() {
-    std::vector<int> input = {1, 2, 4, 0, 6, 3, 2};
-    SparseTable<int> st(input, std::plus<int>(), 0);
-    std::cout << st.query(2,4) << std::endl;
+    vector<int> input = {1, 2, 4, 0, 6, 3, 2};
+    SparseTable<int> st(input, plus<int>(), 0);
+    cout << st.query(2,4) << endl;
 }
