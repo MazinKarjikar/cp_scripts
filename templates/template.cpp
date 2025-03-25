@@ -23,7 +23,7 @@ template <class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,t
 #define eb emplace_back
 #define INF (1LL<<61)
 
-void print(auto v) { for(auto x: v) cout << x << " "; cout << endl; }
+void print(auto& v) { for(auto x: v) cout << x << " "; cout << endl; }
 void NO() { cout << "NO" << endl; }
 void YES() { cout << "YES" << endl; }
 void readv(auto& v) { for(auto& x: v) cin >> x; }

@@ -1,8 +1,9 @@
 MOD = 10**9 + 7
+MAXN = int(1e6 + 10)
 
 fact = [1]
 invfact = [1]
-for v in range(1, 4*10**5 + 10):
+for v in range(1, MAXN):
     fact.append(fact[-1] * v % MOD)
     invfact.append(pow(fact[-1], MOD - 2, MOD))
 
