@@ -1,10 +1,10 @@
 from sys import stdin, stdout
 
 def I(): return stdin.readline().strip(" \r\n")
-def II(): return int(I())
-def IL(): return I().split()
-def ICL(): return list(I())
-def IIL(): return list(map(int, IL()))
+def II(): return int(I()) # input int
+def IL(): return I().split() # input is already a list, take it in and split
+def ICL(): return list(I()) # input char list
+def IIL(): return list(map(int, IL())) # input int list
 def IM(): return map(str, IL())
 def IIM(): return map(int, IL())
 def ICIM(): return map(int, ICL())

@@ -37,19 +37,20 @@ namespace modop {
         a -= b;
         if (a < 0) a += mod;
     }
-    ll mpow(ll base, ll exp) {
-      ll res = 1;
-      while (exp) {
-        if (exp % 2 == 1){
-            res = (res * base) % mod;
+    ll fastpow(ll base, ll exp) {
+        base %= mod;
+        ll res = 1;
+        while (exp) {
+            if (exp % 2 == 1){
+                res = (res * base) % mod;
+            }
+            exp >>= 1;
+            base = (base * base) % mod;
         }
-        exp >>= 1;
-        base = (base * base) % mod;
-      }
-      return res;
+        return res;
     }
     ll minv(ll base) {
-      return mpow(base, mod - 2);
+        return fastpow(base, mod - 2);
     }
     inline ll mul(ll x) {
         return x;
