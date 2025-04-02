@@ -22,6 +22,5 @@ def main():
 def solve():
     n = II()
 
-
 if __name__ == "__main__":
     main()

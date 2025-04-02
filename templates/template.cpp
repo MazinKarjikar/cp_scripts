@@ -7,21 +7,23 @@ using namespace std;
 using namespace __gnu_pbds;
 template <class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 
-#define fastio ios_base::sync_with_stdio(0); cin.tie(0);
-
-#define int long long
-#define vi vector<int>
-#define pii pair<int,int>
-#define getunique(v) {sort(v.begin(), v.end()); v.erase(unique(v.begin(), v.end()), v.end());}
-#define all(x) x.begin(), x.end()
-#define rall(x) x.rbegin(), x.rend()
-#define sor(x) sort(all(x))
-#define rsor(x) sort(rall(x))
-#define sz(x) (int)(x).size()
-#define mp(x, y) make_pair((x), (y))
-#define pb push_back
-#define eb emplace_back
-#define INF (1LL<<61)
+#define fastio         ios_base::sync_with_stdio(0); cin.tie(0);
+#define int            long long
+#define pb             push_back
+#define eb             emplace_back
+#define F              first
+#define S              second
+#define vi             vector<int>
+#define pii            pair<int,int>
+#define sz(x)          (int)(x).size()
+#define all(x)         x.begin(), x.end()
+#define rall(x)        x.rbegin(), x.rend()
+#define sor(x)         sort(all(x))
+#define rsor(x)        sort(rall(x))
+#define mp(x, y)       make_pair((x), (y))
+#define getunique(v)   {sort(v.begin(), v.end()); v.erase(unique(v.begin(), v.end()), v.end());}
+#define popcount(x)    __builtin_popcountll(x)
+#define INF            (1LL<<61)
 
 int mod = 1e9+7;
 using ll = long long;
