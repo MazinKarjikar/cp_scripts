@@ -10,8 +10,6 @@ vector<bool> is_prime(PRIME_GEN_MAX + 1, true);
 
 int main() {
 
-// --------- Copy this into main--------------------------------------
-
     is_prime[0] = is_prime[1] = false;
     for(int i = 2; i * i <= PRIME_GEN_MAX; i++) {
         if (is_prime[i]) {
@@ -20,6 +18,7 @@ int main() {
             }
         }
     }
+
     // optional to get list of primes. for factorization using primes, only compute until sqrt(max(array)), for is_prime as well.
     for(int i = 2; i <= PRIME_GEN_MAX; i++) if (is_prime[i]) primes.push_back(i);
 
