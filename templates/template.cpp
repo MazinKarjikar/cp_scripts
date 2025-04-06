@@ -11,8 +11,8 @@ template <class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,t
 #define int            long long
 #define pb             push_back
 #define eb             emplace_back
-#define F              first
-#define S              second
+#define f               first
+#define s              second
 #define vi             vector<int>
 #define pii            pair<int,int>
 #define sz(x)          (int)(x).size()
