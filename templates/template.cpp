@@ -21,9 +21,19 @@ template <class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,t
 #define sor(x)         sort(all(x))
 #define rsor(x)        sort(rall(x))
 #define mp(x, y)       make_pair((x), (y))
+#define INF            (1LL<<61)
+
 #define getunique(v)   {sort(v.begin(), v.end()); v.erase(unique(v.begin(), v.end()), v.end());}
 #define popcount(x)    __builtin_popcountll(x)
-#define INF            (1LL<<61)
+#define lcm(a, b)      (a * (b / __gcd(a,b)) )
+#define gcd(a, b)      __gcd(a,b)
+#define vmin(a)        (*min_element(a.begin(), a.end()))
+#define vmax(a)        (*max_element(a.begin(), a.end()))
+#define vsum(a)        accumulate(a.begin(), a.end(), 0LL)
+
+int    strtoint(string s)     {istringstream ss(s);int n;ss>>n;return n;}
+string inttostr(int x)         {string s;while(x){s+=(char)(x%10)+'0';x/=10;}reverse(all(s));return s;}
+
 
 int mod = 1e9+7;
 using ll = long long;
