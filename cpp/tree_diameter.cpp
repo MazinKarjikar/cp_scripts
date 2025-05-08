@@ -1,7 +1,9 @@
 #include <vector>
 using namespace std;
 
-pair<int,int> diameter(auto& adj, int root) {
+vector<vector<int>> adj;
+
+auto diameter =  [&](int root) -> pair<int,int> {
 
     pair<int,int> ans = {-1, -1};
     int max_dist = -1;
@@ -23,4 +25,4 @@ pair<int,int> diameter(auto& adj, int root) {
 
     return ans;
 
-}
+};
