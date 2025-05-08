@@ -3,7 +3,7 @@ using namespace std;
 
 vector<vector<int>> adj;
 
-auto diameter =  [&](int root) -> pair<int,int> {
+auto diameter = [&](int root) -> pair<int,int> {
 
     pair<int,int> ans = {-1, -1};
     int max_dist = -1;
