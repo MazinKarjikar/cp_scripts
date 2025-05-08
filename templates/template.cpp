@@ -100,8 +100,8 @@ namespace modop {
 }
 using namespace modop;
 
-
-void print(auto& v) { for(auto x: v) cout << x << " "; cout << endl; }
+template <typename T>
+void print(const T& v) { for(auto x: v) cout << x << " "; cout << endl; }
 void NO() { cout << "NO" << endl; }
 void YES() { cout << "YES" << endl; }
 void readv(auto& v) { for(auto& x: v) cin >> x; }
