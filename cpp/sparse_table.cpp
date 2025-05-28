@@ -45,6 +45,15 @@ struct SparseTable {
 // usage
 int main() {
     vector<int> input = {1, 2, 4, 0, 6, 3, 2};
+
+    // Sum SparseTable
     SparseTable<int> st(input, plus<int>(), 0);
     cout << st.query(2,4) << endl;
+
+    // Minimum/Maximum SparseTable
+    auto combine = [&](int l, int r) -> int {
+        return min(l, r);
+    };
+    SparseTable<int> st(input, combine, 0);
+
 }
