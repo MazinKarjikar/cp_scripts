@@ -124,12 +124,17 @@ void readtree(auto& adj) {
 // vector<pair<int,int>> dirs4 = {{1, 0},{0,1},{-1,0},{0,-1}};
 // vector<pair<int,int>> dirs8 = {{1, 0},{0,1},{-1,0},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1}};
 
+
 void SOLVE(){
     int n; cin >> n;
     vi a(n); readv(a);
 
 }
 
+
+// READ CAREFULLY
+// LOOK TESTCASES
+// REARRANGE EQUATIONS
 signed main() {
     fastio
     int T = 1;
