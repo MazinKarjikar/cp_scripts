@@ -4,9 +4,8 @@ using namespace std;
 // SIEVE OF ERASTOTHENES
 
 int PRIME_GEN_MAX = 2 * 1e5 + 10;
-
-vector<int> primes;
 vector<bool> is_prime(PRIME_GEN_MAX + 1, true);
+vector<int> primes;
 
 int main() {
 
@@ -18,12 +17,11 @@ int main() {
             }
         }
     }
-
-    // optional to get list of primes. for factorization using primes, only compute until sqrt(max(array)), for is_prime as well.
+    // optional to get list of primes. needed for factorization. consider sqrt(max(array)) for factorization.
     for(int i = 2; i <= PRIME_GEN_MAX; i++) if (is_prime[i]) primes.push_back(i);
 
     // Vector of prime factors, O(10^4) if n <= 1e5
-    auto vfactorize = [&](long long n) {
+    auto vfactorize = [&](long long n) -> vector<long long> {
         vector<long long> factorization;
         for (long long d : primes) {
             if (d * d > n)
@@ -39,7 +37,7 @@ int main() {
     };
 
     // Frequency map of prime factors, O(10^4 lg 10^4)
-    auto mfactorize = [&](long long n) {
+    auto mfactorize = [&](long long n) -> map<long long, long long> {
         map<long long, long long> factorization;
         for (long long d : primes) {
             if (d * d > n)
