@@ -118,11 +118,11 @@ void readtree(auto& adj) {
         adj[v].pb(u);
     }
 }
-bool isIn(int r, int c, int R, int C) {
-    return r >= 0 and r < R and c >= 0 and c < C;
-}
-vector<pair<int,int>> dirs4 = {{1, 0},{0,1},{-1,0},{0,-1}};
-vector<pair<int,int>> dirs8 = {{1, 0},{0,1},{-1,0},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1}};
+// bool isIn(int r, int c, int R, int C) {
+//     return r >= 0 and r < R and c >= 0 and c < C;
+// }
+// vector<pair<int,int>> dirs4 = {{1, 0},{0,1},{-1,0},{0,-1}};
+// vector<pair<int,int>> dirs8 = {{1, 0},{0,1},{-1,0},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1}};
 
 void SOLVE(){
     int n; cin >> n;
