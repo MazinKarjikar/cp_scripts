@@ -29,6 +29,8 @@ template <class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,t
 #define popcount(x)    __builtin_popcountll(x)
 #define lcm(a, b)      (a * (b / __gcd(a,b)) )
 #define gcd(a, b)      __gcd(a,b)
+#define maxz(a, b)     (a = max(a, b))
+#define minz(a, b)     (a = min(a, b))
 #define vmin(a)        (*min_element(a.begin(), a.end()))
 #define vmax(a)        (*max_element(a.begin(), a.end()))
 #define vsum(a)        accumulate(a.begin(), a.end(), 0LL)
@@ -108,7 +110,7 @@ void NO() { cout << "NO" << endl; }
 void Yes() { cout << "Yes" << endl; }
 void No() { cout << "No" << endl; }
 void readv(auto& v) { for(auto& x: v) cin >> x; }
-void readadj(auto& adj) {
+void readtree(auto& adj) {
     for(int i = 0; i < sz(adj)-1; i++) {
         int u, v; cin >> u >> v;
         u--; v--;
@@ -116,6 +118,11 @@ void readadj(auto& adj) {
         adj[v].pb(u);
     }
 }
+bool isIn(int r, int c, int R, int C) {
+    return r >= 0 and r < R and c >= 0 and c < C;
+}
+vector<pair<int,int>> dirs4 = {{1, 0},{0,1},{-1,0},{0,-1}};
+vector<pair<int,int>> dirs8 = {{1, 0},{0,1},{-1,0},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1}};
 
 void SOLVE(){
     int n; cin >> n;
