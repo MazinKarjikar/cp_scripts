@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# RUN FROM THIS DIRECTORY
+
 # Configuration
 TEMPLATE_CPP="template.cpp"
 TEMPLATE_PYTHON="template.py"
@@ -15,6 +17,10 @@ error_exit() {
     echo "Error: $1" >&2
     exit 1
 }
+
+# Ensure the parent directory is "templates"
+[ "$(basename "$PWD")" != "templates" ] \
+    && error_exit "Current working directory must be 'templates'"
 
 # Check if snippets directory exists
 [ ! -d "$VSCODE_SNIPPETS_DIR" ] && error_exit "VSCode snippets directory not found"
