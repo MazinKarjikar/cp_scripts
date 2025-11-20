@@ -14,6 +14,7 @@ template <class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,t
 #define f               first
 #define s              second
 #define vi             vector<int>
+#define vvi            vector<vector<int>>
 #define pii            pair<int,int>
 #define vpii           vector<pair<int,int>>
 #define sz(x)          (int)(x).size()
@@ -102,8 +103,10 @@ using namespace modop;
 
 template <typename T>
 void print(const T& v) { for(auto x: v) cout << x << " "; cout << endl; }
-void NO() { cout << "NO" << endl; }
 void YES() { cout << "YES" << endl; }
+void NO() { cout << "NO" << endl; }
+void Yes() { cout << "Yes" << endl; }
+void No() { cout << "No" << endl; }
 void readv(auto& v) { for(auto& x: v) cin >> x; }
 void readadj(auto& adj) {
     for(int i = 0; i < sz(adj)-1; i++) {
