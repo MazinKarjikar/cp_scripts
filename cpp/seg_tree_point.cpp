@@ -42,6 +42,7 @@ private:
         return combine(left_res, right_res);
     }
 public:
+    SegmentTree(int len) : len(len) { segtree = vector<T>(len * 4, DEFAULT); };
     SegmentTree(const vector<T> &arr, const T def) : len(arr.size()), DEFAULT(def) {
         segtree = vector<T>(len * 4, DEFAULT);
         build(arr, 1, 0, len - 1);
@@ -54,7 +55,7 @@ public:
 
 int main() {
 
-    vector<int> a = {1,2,3,4,1};
+    vector<int> a = {1,2,5,4,1};
 
     SegmentTree<int> st(a, 0);
 
