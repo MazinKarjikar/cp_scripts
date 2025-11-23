@@ -38,70 +38,93 @@ template <class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,t
 int    strtoint(string s)     {istringstream ss(s);int n;ss>>n;return n;}
 string inttostr(int x)         {string s;while(x){s+=(char)(x%10)+'0';x/=10;}reverse(all(s));return s;}
 
-
-int mod = 1e9+7;
 using ll = long long;
+const ll MOD = 1'000'000'007;
 
-namespace modop {
-    template<typename T>
-    void add(T &a, ll b) {
-        a += b;
-        if (a >= mod) a -= mod;
-    }
-    template<typename T>
-    void sub(T &a, ll b) {
-        a -= b;
-        if (a < 0) a += mod;
-    }
-    ll fastpow(ll base, ll exp) {
-        base %= mod;
-        ll res = 1;
-        while (exp) {
-            if (exp % 2 == 1){
-                res = (res * base) % mod;
-            }
-            exp >>= 1;
-            base = (base * base) % mod;
-        }
-        return res;
-    }
-    ll minv(ll base) {
-        return fastpow(base, mod - 2);
-    }
-    inline ll mul(ll x) {
-        return x;
-    }
-    template<typename... Args>
-    inline ll mul(ll x, Args... rest) {
-        return x * mul(rest...) % mod;
-    }
-
-    const ll FACTORIAL_SIZE = 2.1e6;
-    ll fact[FACTORIAL_SIZE], ifact[FACTORIAL_SIZE];
-    bool __factorials_generated__ = 0;
-    void gen_factorial(ll n) {
-        __factorials_generated__ = 1;
-        fact[0] = fact[1] = ifact[0] = ifact[1] = 1;
-
-        for (ll i = 2; i <= n; i++) {
-            fact[i] = (i * fact[i - 1]) % mod;
-        }
-        ifact[n] = minv(fact[n]);
-        for (ll i = n - 1; i >= 2; i--) {
-            ifact[i] = ((i + 1) * ifact[i + 1]) % mod;
-        }
-    }
-    ll nck(ll n, ll k) {
-        if (!__factorials_generated__) {
-            cerr << "Call gen_factorial you dope" << endl;
-            exit(1);
-        }
-        if (k < 0 || n < k) return 0;
-        ll den = (ifact[k] * ifact[n - k]) % mod;
-        return (den * fact[n]) % mod;
-    }
+ll norm(ll x) {
+    if (x < 0) x += MOD;
+    if (x >= MOD) x -= MOD;
+    return x;
 }
-using namespace modop;
+
+template<class T>
+T power(T a, long long b) {
+    T res = 1;
+    while (b) {
+        if (b & 1) res *= a;
+        a *= a;
+        b >>= 1;
+    }
+    return res;
+}
+
+template<class T>
+T inv(T a) { return power(a, MOD - 2); }
+
+struct Z {
+    ll x;
+    Z(ll v = 0) {
+        v %= MOD;
+        if (v < 0) v += MOD;
+        x = v;
+    }
+
+    ll val() const { return x; }
+
+    Z operator-() const { return Z( MOD - x ); }
+
+    Z inv() const {
+        assert(x != 0);
+        return power(*this, MOD - 2);
+    }
+
+    Z& operator*=(const Z &rhs) {
+        x = (x * rhs.x) % MOD;
+        return *this;
+    }
+    Z& operator+=(const Z &rhs) {
+        x = norm(x + rhs.x);
+        return *this;
+    }
+    Z& operator-=(const Z &rhs) {
+        x = norm(x - rhs.x);
+        return *this;
+    }
+    Z& operator/=(const Z &rhs) {
+        return *this *= rhs.inv();
+    }
+
+    friend Z operator*(Z lhs, const Z &rhs) { return lhs *= rhs; }
+    friend Z operator+(Z lhs, const Z &rhs) { return lhs += rhs; }
+    friend Z operator-(Z lhs, const Z &rhs) { return lhs -= rhs; }
+    friend Z operator/(Z lhs, const Z &rhs) { return lhs /= rhs; }
+};
+
+struct Fact {
+    std::vector<Z> fact, ifact;
+    bool built = false;
+
+    void init(int n) {
+        if (built && (int)fact.size() > n) return;
+        built = true;
+
+        fact.assign(n + 1, 1);
+        ifact.assign(n + 1, 1);
+
+        for (int i = 1; i <= n; i++)
+            fact[i] = fact[i-1] * Z(i);
+
+        ifact[n] = fact[n].inv();
+        for (int i = n; i > 0; i--)
+            ifact[i-1] = ifact[i] * Z(i);
+    }
+
+    Z nCr(int n, int r) {
+        if (r < 0 || r > n) return 0;
+        assert(built);
+        return fact[n] * ifact[r] * ifact[n-r];
+    }
+};
 
 template <typename T>
 void print(const T& v) { for(auto x: v) cout << x << " "; cout << endl; }
