@@ -1,26 +1,35 @@
-from sys import stdin, stdout
+import sys
+from itertools import *
+from collections import *
+from heapq import *
+from bisect import *
 
-def I(): return stdin.readline().strip(" \r\n")
-def II(): return int(I()) # input int
-def IL(): return I().split() # input is already a list, take it in and split
-def ICL(): return list(I()) # input char list
-def IIL(): return list(map(int, IL())) # input int list
-def IM(): return map(str, IL())
-def IIM(): return map(int, IL())
-def ICIM(): return map(int, ICL())
-def ICIL(): return list(map(int, ICL()))
-def P(*args,sep=' ',end=''): stdout.write(sep.join([str(s) for s in args]) + end)
-def PL(*args,sep=' '): P(*args, sep=sep, end='\n')
-def F(): stdout.flush()
-def YES(): PL("YES")
-def NO(): PL("NO")
+input = lambda: sys.stdin.readline().strip()
+rint = lambda: int(input())
+rdigits = lambda: list(map(int, input()))
+rlist = lambda: list(map(int, input().split()))
+rgrid = lambda n: [list(map(int, input().split())) for _ in range(n)]
+fmin = lambda x, y: x if x < y else y
+fmax = lambda x, y: x if x > y else y
+inf, ninf = float("inf"), float("-inf")
 
-def main():
-    for _ in range(II()):
-        solve()
+MOD = 10**9 + 7
+MOD = 998244353
+
 
 def solve():
-    n = II()
+    N = rint()
 
-if __name__ == "__main__":
-    main()
+# TT = 1
+TT = rint()
+for _tt in range(TT):
+    ans = solve()
+    print(ans)
+
+    # print(len(ans))
+    # print(*ans)
+    # print("\n".join(map(str, ans)))
+    # for row in ans:
+    #     print(*row)
+    # print("Yes" if ans else "No")
+    # print("Alice" if ans else "Bob")

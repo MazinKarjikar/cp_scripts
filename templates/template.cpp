@@ -98,6 +98,8 @@ struct Z {
     friend Z operator+(Z lhs, const Z &rhs) { return lhs += rhs; }
     friend Z operator-(Z lhs, const Z &rhs) { return lhs -= rhs; }
     friend Z operator/(Z lhs, const Z &rhs) { return lhs /= rhs; }
+    friend bool operator==(const Z& a, const Z& b) { return a.x == b.x; }
+    friend bool operator!=(const Z& a, const Z& b) { return a.x != b.x; }
 };
 
 struct Fact {
