@@ -47,11 +47,11 @@ struct bitset{
     }
 
     void add(int i){
-        flip(i,BS.get0(i));
+        flip(i,get0(i));
     }
 
     void del(int i){
-        flip(i,BS.get1(i));
+        flip(i,get1(i));
     }
 
     int gethigh(){
