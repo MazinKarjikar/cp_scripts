@@ -20,7 +20,7 @@ MOD = 998244353
 def solve():
     N = rint()
 
-# TT = 1
+TT = 1
 TT = rint()
 for _tt in range(TT):
     ans = solve()

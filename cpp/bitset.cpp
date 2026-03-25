@@ -50,7 +50,7 @@ struct bitset{
         flip(i,get0(i));
     }
 
-    void del(int i){
+    void sub(int i){
         flip(i,get1(i));
     }
 

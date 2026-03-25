@@ -35,6 +35,13 @@ template <class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,t
 #define vmax(a)        (*max_element(a.begin(), a.end()))
 #define vsum(a)        accumulate(a.begin(), a.end(), 0LL)
 
+#define FOR(i, a, b) for (int i = (a); i < (b); ++i)
+#define F0R(i, a) FOR(i, 0, a)
+#define ROF(i, a, b) for (int i = (b) - 1; i >= (a); --i)
+#define R0F(i, a) ROF(i, 0, a)
+#define rep(a) F0R(_, a)
+#define each(a, x) for (auto &a : x)
+
 int    strtoint(string s)     {istringstream ss(s);int n;ss>>n;return n;}
 string inttostr(int x)         {string s;while(x){s+=(char)(x%10)+'0';x/=10;}reverse(all(s));return s;}
 
