@@ -36,7 +36,7 @@ int main() {
         return factorization;
     };
 
-    // Frequency map of prime factors, O(10^4 lg 10^4)
+    // Frequency map of prime factors, O(10^4)
     auto mfactorize = [&](long long n) -> map<long long, long long> {
         map<long long, long long> factorization;
         for (long long d : primes) {

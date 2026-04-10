@@ -1,4 +1,5 @@
 # Used for when your graph has maximum 1 out degree, thus maximum 1 parent.
+# Can be used to jump forward or backward, as long as there's one way to do it.
 
 # Can be used in rho graphs (cycle with trees outwards)
 p = [0, 0, 0, 1, 2, 0] # DONT COPY

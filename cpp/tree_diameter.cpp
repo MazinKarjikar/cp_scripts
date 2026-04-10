@@ -4,8 +4,8 @@ using namespace std;
 
 vector<vector<int>> adj;
 
+// returns {[d1, d2, length], [center1, optional(center2)]}
 auto diameter_center = [&](int root) -> pair<array<int,3>, pair<int,int>> {
-    // returns the two leaf nodes representing the diameter of the tree
     array<int,3> ans = {-1, -1, -1};
     int max_dist = -1;
     int max_node = -1;
