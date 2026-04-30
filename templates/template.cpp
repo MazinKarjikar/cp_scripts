@@ -45,6 +45,8 @@ template <class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,t
 int    strtoint(string s)     {istringstream ss(s);int n;ss>>n;return n;}
 string inttostr(int x)         {string s;while(x){s+=(char)(x%10)+'0';x/=10;}reverse(all(s));return s;}
 
+#define watch(x) cout<<(#x)<<" = "<<x<<endl
+
 using ll = long long;
 const ll MOD = 1'000'000'007;
 

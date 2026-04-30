@@ -1,12 +1,12 @@
 
 class DSU:
 	def __init__(self, size: int) -> None:
-		self.parents = [-1 for _ in range(size)]
+		self.parents = [i for i in range(size)]
 		self.sizes = [1 for _ in range(size)]
 
-	# finds the "representative" node in a's component
+	# finds the "representative" node in x's component
 	def find(self, x: int) -> int:
-		if self.parents[x] == -1:
+		if self.parents[x] == x:
 			return x
 		self.parents[x] = self.find(self.parents[x])
 		return self.parents[x]
