@@ -33,12 +33,12 @@ private:
         }
         segtree[at] = combine(segtree[2 * at], segtree[2 * at + 1]);
     }
-    T range(int start, int end, int at, int at_left, int at_right) {
+    T query(int start, int end, int at, int at_left, int at_right) {
         if (at_right < start || end < at_left) { return DEFAULT; }
         if (start <= at_left && at_right <= end) { return segtree[at]; }
         int mid = (at_left + at_right) / 2;
-        T left_res = range(start, end, 2 * at, at_left, mid);
-        T right_res = range(start, end, 2 * at + 1, mid + 1, at_right);
+        T left_res = query(start, end, 2 * at, at_left, mid);
+        T right_res = query(start, end, 2 * at + 1, mid + 1, at_right);
         return combine(left_res, right_res);
     }
 public:
@@ -50,7 +50,7 @@ public:
     /** Sets the value at ind to val. */
     void set(int ind, T val) { set(ind, val, 1, 0, len - 1); }
     /** @return the minimum element in the range [start, end] */
-    T range(int start, int end) { return range(start, end, 1, 0, len - 1); }
+    T query(int start, int end) { return query(start, end, 1, 0, len - 1); }
 };
 
 int main() {
@@ -59,7 +59,7 @@ int main() {
 
     SegmentTree<int> st(a, 0);
 
-    int ans = st.range(0, 2);
+    int ans = st.query(0, 2);
     cout << ans << endl;
 
 };

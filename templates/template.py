@@ -17,7 +17,10 @@ inf, ninf = float("inf"), float("-inf")
 MOD = 10**9 + 7
 MOD = 998244353
 
-
+# READ CAREFULLY
+# LOOK TESTCASES
+# REARRANGE EQUATIONS
+# CODE BRUTE FORCE FOR FIRST 1000 NUMBERS, LOOK FOR PATTERNS
 def solve():
     N = rint()
 
