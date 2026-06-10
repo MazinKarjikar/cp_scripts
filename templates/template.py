@@ -23,7 +23,7 @@ MOD = 998244353
 # REARRANGE EQUATIONS
 # CODE BRUTE FORCE FOR FIRST 1000 NUMBERS, LOOK FOR PATTERNS
 def solve():
-    N = rint()
+    n = rint()
 
 TT = 1
 TT = rint()
