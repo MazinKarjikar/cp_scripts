@@ -7,10 +7,12 @@ using namespace std;
 using namespace __gnu_pbds;
 template <class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 
+using ll = long long;
+using u64 = uint64_t;
+
 // rng
-// uint64_t seed = chrono::steady_clock::now().time_since_epoch().count();
-// seed ^= random_device{}();
-// seed ^= (uintptr_t)&seed;
+// uint64_t seed = (u64) chrono::steady_clock::now().time_since_epoch().count()
+//               ^ (u64) random_device{}();
 // mt19937_64 rng(seed);
 // uniform_int_distribution<uint64_t> dist(1, 100);
 // usage for unbounded tag: u64 tag = rng();
@@ -56,9 +58,8 @@ string inttostr(int x)         {string s;while(x){s+=(char)(x%10)+'0';x/=10;}rev
 
 #define watch(x) cout<<(#x)<<" = "<<x<<endl
 
-using ll = long long;
-using u64 = uint64_t;
 const ll MOD = 1'000'000'007;
+// const ll MOD = 998244353;
 
 ll norm(ll x) {
     if (x < 0) x += MOD;
