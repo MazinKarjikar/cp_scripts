@@ -3,6 +3,16 @@ using namespace std;
 /** A data structure that can answer point update & range queries. */
 
 template <class T> class SegmentTree {
+public:
+    SegmentTree(int len) : len(len) { segtree = vector<T>(len * 4, DEFAULT); };
+    SegmentTree(const vector<T> &arr, const T def) : len(arr.size()), DEFAULT(def) {
+        segtree = vector<T>(len * 4, DEFAULT);
+        build(arr, 1, 0, len - 1);
+    }
+    /** Sets the value at ind to val. */
+    void set(int ind, T val) { set(ind, val, 1, 0, len - 1); }
+    /** @return the minimum element in the range [start, end] */
+    T query(int start, int end) { return query(start, end, 1, 0, len - 1); }
 private:
     /* CHANGE DEPENDING ON TYPE OF SEGMENT TREE*/
     const T DEFAULT = 0;
@@ -41,16 +51,6 @@ private:
         T right_res = query(start, end, 2 * at + 1, mid + 1, at_right);
         return combine(left_res, right_res);
     }
-public:
-    SegmentTree(int len) : len(len) { segtree = vector<T>(len * 4, DEFAULT); };
-    SegmentTree(const vector<T> &arr, const T def) : len(arr.size()), DEFAULT(def) {
-        segtree = vector<T>(len * 4, DEFAULT);
-        build(arr, 1, 0, len - 1);
-    }
-    /** Sets the value at ind to val. */
-    void set(int ind, T val) { set(ind, val, 1, 0, len - 1); }
-    /** @return the minimum element in the range [start, end] */
-    T query(int start, int end) { return query(start, end, 1, 0, len - 1); }
 };
 
 int main() {
