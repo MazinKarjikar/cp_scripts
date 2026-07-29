@@ -24,10 +24,7 @@ using u64 = uint64_t;
 #define eb             emplace_back
 #define f               first
 #define s              second
-#define vi             vector<int>
-#define vvi            vector<vector<int>>
 #define pii            pair<int,int>
-#define vpii           vector<pair<int,int>>
 #define sz(x)          (int)(x).size()
 #define all(x)         x.begin(), x.end()
 #define rall(x)        x.rbegin(), x.rend()
@@ -42,16 +39,24 @@ using u64 = uint64_t;
 #define gcd(a, b)      __gcd(a,b)
 #define maxz(a, b)     (a = max(a, b))
 #define minz(a, b)     (a = min(a, b))
-#define vmin(a)        (*min_element(a.begin(), a.end()))
-#define vmax(a)        (*max_element(a.begin(), a.end()))
-#define vsum(a)        accumulate(a.begin(), a.end(), 0LL)
+#define MIN(a)        (*min_element(a.begin(), a.end()))
+#define MAX(a)        (*max_element(a.begin(), a.end()))
+#define SUM(a)        accumulate(a.begin(), a.end(), 0LL)
 
+#define rep(i, a, b) for (int i = (int)(a); i < (int)(b); i++)
 #define FOR(i, a, b) for (int i = (a); i < (b); ++i)
 #define F0R(i, a) FOR(i, 0, a)
 #define ROF(i, a, b) for (int i = (b) - 1; i >= (a); --i)
 #define R0F(i, a) ROF(i, 0, a)
-#define rep(a) F0R(_, a)
 #define each(a, x) for (auto &a : x)
+
+template <class T> using vec = vector<T>;
+template <class T> using vvec = vec<vec<T>>;
+template <class T> using vvvec = vec<vvec<T>>;
+template <class T> using pqueue = priority_queue<T, vec<T>>;
+template<class T> using pq_ = priority_queue<T, vector<T>, greater<T>>;
+template<class T> int LB(vector<T> &v,T a){return lower_bound(v.begin(),v.end(),a)-v.begin();}
+template<class T> int UB(vector<T> &v,T a){return upper_bound(v.begin(),v.end(),a)-v.begin();}
 
 int    strtoint(string s)     {istringstream ss(s);int n;ss>>n;return n;}
 string inttostr(int x)         {string s;while(x){s+=(char)(x%10)+'0';x/=10;}reverse(all(s));return s;}
@@ -169,22 +174,21 @@ void readtree(auto& adj) {
 // vector<pair<int,int>> dirs4 = {{1, 0},{0,1},{-1,0},{0,-1}};
 // vector<pair<int,int>> dirs8 = {{1, 0},{0,1},{-1,0},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1}};
 
-
-void SOLVE(){
-    int n; cin >> n;
-    vi a(n); readv(a);
-
-}
-
-
 // IF YOU CANT THINK OF COUNTEREXAMPLE, CODE IT! GUESS IT!
 // READ CAREFULLY
 // LOOK TESTCASES
 // REARRANGE EQUATIONS
 // CODE BRUTE FORCE FOR FIRST 1000 NUMBERS, LOOK FOR PATTERNS
+void SOLVE();
 signed main() {
     fastio
     int T = 1;
     cin >> T;
     while(T--) SOLVE();
+}
+
+void SOLVE(){
+    int n; cin >> n;
+    vec<int> a(n); readv(a);
+
 }
