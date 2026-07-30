@@ -179,11 +179,16 @@ void readtree(auto& adj) {
 // LOOK TESTCASES
 // REARRANGE EQUATIONS
 // CODE BRUTE FORCE FOR FIRST 1000 NUMBERS, LOOK FOR PATTERNS
+const string FILENAME = ""; // usaco
 void SOLVE();
 signed main() {
     fastio
     int T = 1;
-    cin >> T;
+    if (ifstream(FILENAME + ".in")) {
+        freopen((FILENAME + ".in").c_str(), "r", stdin);
+        freopen((FILENAME + ".out").c_str(), "w", stdout);
+    }
+    if (FILENAME == "") cin >> T;
     while(T--) SOLVE();
 }
 

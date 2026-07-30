@@ -17,24 +17,18 @@ int main() {
 
         vector<vector<int>> pref(n+1, vector<int>(m+1, 0));
 
-        for(int i = 0; i < n; i++) {
-            int rsum = 0;
-            for(int j = 0; j < m; j++) {
-                rsum += grid[i][j];
-                pref[i+1][j+1] = rsum;
-                if (i > 0) pref[i+1][j+1] += pref[i][j+1];
+        for(int i = 1; i <= n; i++) {
+            for(int j = 1; j <= m; j++) {
+                pref[i][j] = pref[i-1][j] + pref[i][j-1] - pref[i-1][j-1] + grid[i-1][j-1];
             }
         }
 
         return pref;
     };
 
-    auto query_2d_pref = [&](vector<vector<int>>& pref, int x1, int y1, int x2, int y2) {
-        int tot = pref[x2+1][y2+1];
-        tot -= pref[x1][y2+1];
-        tot -= pref[x2+1][y1];
-        tot += pref[x1][y1];
-        return tot;
+    auto query_2d_pref = [&](vector<vector<int>>& pref, int a, int b, int A, int B) {
+        a++; b++; A++; B++;
+        return pref[A][B] - pref[a-1][B] - pref[A][b-1] + pref[a-1][b-1];
     };
 // ----------------------------------------------------------------------------------------
 
